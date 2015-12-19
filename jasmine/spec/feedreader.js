@@ -21,7 +21,7 @@
          * allFeeds in app.js to be an empty array and refresh the
          * page?
          */
-         it('RSS Feeds are defined', function() {
+         it('are defined', function() {
             expect(allFeeds).toBeDefined();
             expect(allFeeds.length).not.toEqual(0);
         } //closing anon function
@@ -33,7 +33,7 @@
          * and that the URL is not empty.
          */
 
-         it('RSS Feeds contains feeds with URLs defined and not empty', function () {
+         it('contains feeds with URLs defined and not empty', function () {
             allFeeds.forEach(function (feed) {
                 expect(feed.url).toBeDefined();
                 expect(feed.url.length).not.toEqual(0);
