@@ -53,14 +53,14 @@ describe('The Menu', function () {
         }); // closing beforeEach
 
          it ('makes sure that menu element is hidden by default', function () {
-            expect(bodyVar.hasClass('menu-hidden')).toBe(true);
+            expect(bodyVar.hasClass('menu-hidden')).toBeTruthy();
 
         }); // closing anon function
 
           it ('makes sure that menu changes visibility once the menu icon is clicked', function () {
             menuVar = $('a.menu-icon-link');
             menuVar.trigger('click');
-            expect(bodyVar.hasClass('menu-hidden')).toBe(false);
+            expect(bodyVar.hasClass('menu-hidden')).toBeFalsy();
 
         }); // closing anon function
 
