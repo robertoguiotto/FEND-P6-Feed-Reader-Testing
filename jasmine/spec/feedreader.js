@@ -108,16 +108,13 @@ describe ('New Feed Selection', function () {
 
              loadFeed (0, function () {
                 firstFeedH1 = $('.feed').find('h1').text();
-            }); // closing anon function
-             done();
+                loadFeed(1, done);
+            }); // closing anon function of first load feed
 
         }); // closing beforeEach
 
         it ('ensures when a new feed is loaded by loadFeed, that the content actually changes', function () {
-        loadFeed(1); // loading a diffrent feed for text purposes
-        secondFeedH1 = $('.feed').find('h1').text();
         expect(secondFeedH1).not.toEqual(firstFeedH1);
-        //done();
 
         } // closing anon function
 
