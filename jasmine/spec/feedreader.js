@@ -122,4 +122,4 @@ describe ('New Feed Selection', function () {
 
     }); // closing describe 'New Feed Selection'
 
-}()); // closing initial $ function
+}()); // closing initial $ function.
