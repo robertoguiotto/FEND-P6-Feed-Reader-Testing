@@ -57,12 +57,23 @@ describe('The Menu', function () {
 
         }); // closing anon function
 
-          it ('makes sure that menu changes visibility once the menu icon is clicked', function () {
+          it ('makes sure that menu is visible once the menu icon is clicked', function () {
             menuVar = $('a.menu-icon-link');
             menuVar.trigger('click');
             expect(bodyVar.hasClass('menu-hidden')).toBeFalsy();
 
         }); // closing anon function
+
+          it ('makes sure that menu is not visible once the menu icon is clicked again', function () {
+            menuVar = $('a.menu-icon-link');
+            menuVar.trigger('click');
+            expect(bodyVar.hasClass('menu-hidden')).toBeTruthy();
+
+        }); // closing anon function
+
+
+
+
 
     }); // closing describe 'The Menu'
 
