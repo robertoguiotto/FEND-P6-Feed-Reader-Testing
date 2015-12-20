@@ -32,15 +32,16 @@ $(function() {
         } // closing anon function
       ); // closing forEach loop
     }); // closing it
-
   }); // closing describe 'RSS Feeds'
 
 
   describe('The Menu', function () {
 
-    beforeEach(function () {
-      bodyVar = $('body');
-    }); // closing beforeEach
+    var bodyVar;
+    var menuVar;
+
+    bodyVar = $('body');
+    menuVar = $('a.menu-icon-link');
 
     it ('makes sure that menu element is hidden by default', function () {
       expect(bodyVar.hasClass('menu-hidden')).toBeTruthy();
@@ -57,7 +58,6 @@ $(function() {
       menuVar.trigger('click');
       expect(bodyVar.hasClass('menu-hidden')).toBeTruthy();
     }); // closing anon function
-
   }); // closing describe 'The Menu'
 
 
@@ -72,31 +72,31 @@ $(function() {
       var entryTest = $('.entry');
       var feedTest = $('.feed');
       expect(entryTest.length).toBeGreaterThan(0);
-      expect(feedTest.length).toBeGreaterThan(0);
       }// closing anon function
     ); // closing it
-
   });// closing describe 'Initial Entries'
 
   describe ('New Feed Selection', function () {
 
     // declaring vars in the describe scope;
-    var firstFeedH1;
-    var secondFeedH1;
+    var firstFeed;
+    var secondFeed;
+    secondFeed = $('.feed').text();
+
 
     // makes sure that loadFeed had success
     beforeEach(function(done){
       $('.feed').empty(); // cleaning up the DOM
       loadFeed (0, function () {
-        firstFeedH1 = $('.feed').find('h1').text();
+        firstFeed = $('.feed').text();
         loadFeed(1, done);
       }); // closing anon function of first load feed
     }); // closing beforeEach
 
     it ('ensures when a new feed is loaded by loadFeed, that the content actually changes', function () {
-      expect(secondFeedH1).not.toEqual(firstFeedH1);
+      secondFeed = $('.feed').text();
+      expect(secondFeed).not.toEqual(firstFeed);
       } // closing anon function
     ); // closing it
   }); // closing describe 'New Feed Selection'
-
 }()); // closing initial $ function.
